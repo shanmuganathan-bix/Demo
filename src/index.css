@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* 60-30-10 Color System */
+  --bg-dominant: #F8F9FA;      /* 60% Dominant: Soft Light Gray */
+  --bg-white: #FFFFFF;         /* Pure White */
+  --color-secondary: #0B1B3D;   /* 30% Secondary: Deep Navy Blue */
+  --color-accent-teal: #00A896;/* 10% Accent: Vibrant Cyan/Teal */
+  --color-accent-green: #39FF14;/* 10% Accent: Bio-Luminescent Green */
+
+  --border-subtle: rgba(11, 27, 61, 0.12);
+  --border-accent: rgba(0, 168, 150, 0.4);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 4px;
+}
+
+html {
+  font-family: var(--font-body);
+  background-color: var(--bg-dominant);
+  color: var(--color-secondary);
+  scroll-behavior: smooth;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-secondary);
+  line-height: 1.25;
+}
+
+/* Custom Scrollbar - Deep Navy & Teal Accent */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #F8F9FA;
+}
+::-webkit-scrollbar-thumb {
+  background: #0B1B3D;
+  border-radius: 5px;
+  border: 2px solid #F8F9FA;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00A896;
+}
+
+/* 60% Dominant Background Grid */
+.bio-grid-bg {
+  background-color: #F8F9FA;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(0, 168, 150, 0.08), transparent 60%),
+    radial-gradient(circle at 85% 50%, rgba(11, 27, 61, 0.04), transparent 55%),
+    linear-gradient(to right, rgba(11, 27, 61, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(11, 27, 61, 0.03) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+}
+
+/* Clean White Cards with Deep Navy Borders & Subtle Shadow */
+.bio-card-glass {
+  background: #FFFFFF;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 10px 30px -5px rgba(11, 27, 61, 0.06);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bio-card-glass:hover {
+  border-color: var(--color-accent-teal);
+  box-shadow: 0 16px 40px -8px rgba(0, 168, 150, 0.18);
+  transform: translateY(-4px);
+}
+
+/* Structural Deep Navy Barrier Card */
+.bio-card-navy {
+  background: #0B1B3D;
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 16px 40px -10px rgba(11, 27, 61, 0.4);
+}
+
+/* Crystal-Clear Form Field Styling - 60-30-10 */
+.bio-form-input {
+  background-color: #FFFFFF;
+  border: 1.5px solid #CBD5E1;
+  color: #0B1B3D;
+  font-size: 0.9375rem;
+  border-radius: 0.875rem;
+  padding: 0.875rem 1.125rem;
+  transition: all 0.25s ease;
+  width: 100%;
+}
+
+.bio-form-input:focus {
+  outline: none;
+  border-color: #00A896;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 0 3px rgba(0, 168, 150, 0.2);
+}
+
+.bio-form-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #0B1B3D;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Text Gradients */
+.text-gradient-cyan {
+  background: linear-gradient(135deg, #0B1B3D 0%, #00A896 60%, #00C4B4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-purple {
+  background: linear-gradient(135deg, #0B1B3D 0%, #00A896 50%, #39FF14 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-emerald {
+  background: linear-gradient(135deg, #0B1B3D 0%, #00A896 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 10% Accent Glow Buttons */
+.glow-btn-cyan {
+  position: relative;
+  background: #00A896;
+  color: #FFFFFF;
+  box-shadow: 0 4px 20px rgba(0, 168, 150, 0.35);
+  transition: all 0.3s ease;
+}
+
+.glow-btn-cyan:hover {
+  background: #008f80;
+  box-shadow: 0 6px 28px rgba(0, 168, 150, 0.55);
+  transform: translateY(-2px);
+}
+
+.glow-btn-green {
+  position: relative;
+  background: #39FF14;
+  color: #0B1B3D;
+  box-shadow: 0 4px 20px rgba(57, 255, 20, 0.4);
+  transition: all 0.3s ease;
+}
+
+.glow-btn-green:hover {
+  box-shadow: 0 6px 28px rgba(57, 255, 20, 0.7);
+  transform: translateY(-2px);
+}
+
+/* Keyframe animations */
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-14px) rotate(2deg); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.2; filter: blur(30px); }
+  50% { opacity: 0.5; filter: blur(45px); }
+}
+
+.animate-float-slow {
+  animation: floatSlow 7s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 5s ease-in-out infinite;
+}
