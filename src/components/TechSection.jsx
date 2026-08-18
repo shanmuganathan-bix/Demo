@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Terminal, Dna, Play, RefreshCw, Sparkles, Cpu, Zap } from 'lucide-react';
+import { Terminal, Dna, Play, RefreshCw, Sparkles, Cpu, Layers, Database, Zap, ArrowRight, ShieldCheck } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 export default function TechSection() {
@@ -13,6 +13,33 @@ export default function TechSection() {
     { label: 'CRISPR-Cas13 Target (Oncology)', seq: 'AUG-CCC-GUA-UAC-GGG-AAC-UGA' },
     { label: 'Cardiac mRNA Vector (Repair)', seq: 'AUG-GCG-UAC-CUG-GAA-UCC-UAA' },
     { label: 'Neural Axon Regenerator', seq: 'AUG-UUU-CCA-GAG-AUC-GGG-UGA' },
+  ];
+
+  const techStackItems = [
+    {
+      title: 'Quantum Tensor Folding',
+      badge: '0.8 Å Resolution',
+      icon: Cpu,
+      description: 'Hybrid quantum-classical tensor networks predicting tertiary protein structures in under 4 minutes.'
+    },
+    {
+      title: 'Automated Bio-Foundry',
+      badge: '24/7 Robotics',
+      icon: Database,
+      description: 'Acoustic liquid handling robotics running continuous cell line transfection and passage assays.'
+    },
+    {
+      title: 'Single-Cell Transcriptomics',
+      badge: '100k Droplets/Day',
+      icon: Layers,
+      description: 'Massively parallel droplet sorting analyzing single-cell gene expression at scale.'
+    },
+    {
+      title: 'Neural Codon Optimizer',
+      badge: 'AI Gene Synthesis',
+      icon: Dna,
+      description: 'Deep generative diffusion algorithms synthesizing custom mRNA sequences with zero off-target cleavage.'
+    }
   ];
 
   const handleRunSimulation = () => {
@@ -45,26 +72,54 @@ export default function TechSection() {
   };
 
   return (
-    <section id="sandbox" className="py-32 sm:py-36 px-6 sm:px-8 lg:px-12 bio-grid-bg relative border-t border-[#0B1B3D]/10">
+    <section id="technology" className="py-32 sm:py-36 px-6 sm:px-8 lg:px-12 bio-grid-bg relative border-t border-[#0B1B3D]/10">
       <div className="max-w-7xl mx-auto space-y-20">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-5">
           <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-[#FFFFFF] border border-[#0B1B3D]/15 text-[#00A896] text-xs font-mono tracking-wider font-bold shadow-sm">
             <Cpu size={15} />
-            <span>INTERACTIVE GENOMIC SANDBOX</span>
+            <span>DEEP COMPUTATIONAL TECHNOLOGY STACK</span>
           </div>
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#0B1B3D] tracking-tight leading-tight">
-            In-Silico Gene Synthesis & <br />
-            <span className="text-gradient-purple font-heading">Affinity Simulator</span>
+            Quantum Hardware & <br />
+            <span className="text-gradient-purple font-heading">Generative Bio-Algorithms</span>
           </h2>
           <p className="text-[#0B1B3D]/80 text-base sm:text-xl leading-relaxed font-normal">
-            Test custom RNA nucleotide motifs in real-time. Adjust binding parameters and observe predicted thermodynamic stability and translation efficiency.
+            Our multi-layer technology architecture seamlessly connects quantum simulation engines with high-throughput laboratory robotics.
           </p>
         </div>
 
-        {/* Interactive Lab Sandbox Card */}
-        <div className="bio-card-glass rounded-3xl p-8 sm:p-12 lg:p-14 border border-[#0B1B3D]/15 grid grid-cols-1 lg:grid-cols-12 gap-12 shadow-xl relative overflow-hidden">
+        {/* Technology Stack Grid Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {techStackItems.map((item, idx) => {
+            const IconComp = item.icon;
+            return (
+              <div
+                key={idx}
+                className="bio-card-glass rounded-3xl p-7 border border-[#0B1B3D]/15 bg-[#FFFFFF] shadow-sm flex flex-col justify-between space-y-6 hover:border-[#00A896] transition-all"
+              >
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <div className="p-3 rounded-2xl bg-[#00A896]/10 text-[#00A896]">
+                      <IconComp size={24} />
+                    </div>
+                    <span className="text-[11px] font-mono font-bold text-[#00A896] bg-[#00A896]/10 px-2.5 py-1 rounded-full border border-[#00A896]/30">
+                      {item.badge}
+                    </span>
+                  </div>
+                  <div>
+                    <h3 className="font-heading font-bold text-lg text-[#0B1B3D] mb-2">{item.title}</h3>
+                    <p className="text-xs text-[#0B1B3D]/70 leading-relaxed">{item.description}</p>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Interactive Lab Sandbox Card - id="sandbox" */}
+        <div id="sandbox" className="bio-card-glass rounded-3xl p-8 sm:p-12 lg:p-14 border border-[#0B1B3D]/15 grid grid-cols-1 lg:grid-cols-12 gap-12 shadow-xl relative overflow-hidden bg-[#FFFFFF] pt-12">
           
           {/* Controls Column */}
           <div className="lg:col-span-6 space-y-8">
@@ -155,7 +210,7 @@ export default function TechSection() {
               </div>
             </div>
 
-            {/* Simulate Button - 10% Accent */}
+            {/* Simulate Button */}
             <button
               onClick={handleRunSimulation}
               disabled={isSimulating}

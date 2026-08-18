@@ -43,7 +43,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#030712] text-slate-100 font-sans relative selection:bg-cyan-500/30 selection:text-cyan-200">
+    <div className="min-h-screen bg-[#F8F9FA] text-[#0B1B3D] font-sans relative selection:bg-[#00A896]/20 selection:text-[#00A896]">
       {/* Background Animated Scanline Effect */}
       <div className="scanline-overlay" />
 
